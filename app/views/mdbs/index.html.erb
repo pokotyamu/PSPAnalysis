@@ -1,7 +1,9 @@
 <h1>Mdbs#index</h1>
 <% @mdbs.each do |f| %>
 	<tr>
-		<td><%=  f.file_name %>
+		<td><%=  f.file_name %></td>
+		<td><%= link_to 'Download', mdb_download_path(f) %></td>
+		<td><%= link_to 'Destory', mdb_destroy_path(f) %></td>
 	</tr>
 <% end %>
 <%= form_tag import_mdbs_path, multipart: true do %>
