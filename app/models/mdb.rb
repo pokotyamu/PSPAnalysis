@@ -3,6 +3,6 @@ class Mdb < ActiveRecord::Base
     mdb = Mdb.new
     mdb.file_name = file.original_filename
     mdb.file = file.read
-    mdb.save
+    mdb.save if File.extname(mdb.file_name) == ".mdb"
   end
 end
