@@ -4,3 +4,7 @@
 		<td><%=  f.file_name %>
 	</tr>
 <% end %>
+<%= form_tag import_mdbs_path, multipart: true do %>
+	<%= file_field_tag :file %>
+	<%= submit_tag "インポート" %>
+<% end %>
