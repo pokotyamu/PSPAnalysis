@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     collection { post :import }
     get 'download'
     get 'destroy'
+    get 'analyze'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
