@@ -4,7 +4,9 @@
 		<td><%=  f.file_name %></td>
 		<td><%= link_to 'Download', mdb_download_path(f) %></td>
 		<td><%= link_to 'Destory', mdb_destroy_path(f) %></td>
+		<td><%= link_to 'Analyze', mdb_analyze_path(f,format: :json) %></td>
 	</tr>
+	<br>
 <% end %>
 <%= form_tag import_mdbs_path, multipart: true do %>
 	<%= file_field_tag :file %>
