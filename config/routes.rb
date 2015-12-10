@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'charts/show'
+
   root 'mdbs#index'
   resources 'mdbs', only: :index do
     collection { post :import }

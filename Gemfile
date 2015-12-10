@@ -52,3 +52,5 @@ group :development, :test do
 end
 
 gem 'better_errors'
+
+gem 'lazy_high_charts'
