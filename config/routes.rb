@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'charts/show'
-
   root 'mdbs#index'
   resources 'mdbs', only: :index do
     collection { post :import }
@@ -8,6 +6,9 @@ Rails.application.routes.draw do
     get 'destroy'
     get 'analyze'
   end
+
+  get 'charts/show'
+  post 'charts/create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
