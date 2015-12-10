@@ -1,0 +1,44 @@
+{
+    "graph1" : {
+        "title" : "Title sample",
+        "type" : "line",
+        "xAxis" : {
+            "title" : {
+                "text" : "xTitle",
+                "margin" : 20
+            },
+            "categories" : [400,401,402,403,404,405,406,407,408]
+        },
+        "yAxis" : {
+            "title" : {
+                "text" : "yTitle",
+                "margin" : 20
+            }
+        },
+        "series" : {
+            "name" : "ActMinTotal",
+            "data" : [500,600,550,630,800,920,1100,300]
+        }
+    },
+    "grap" : {
+        "title" : "Title sample",
+        "type" : "column",
+        "xAxis" : {
+            "title" : {
+                "text" : "xTitle",
+                "margin" : 20
+            },
+            "categories" : [400,401,402,403,404,405,406,407,408]
+        },
+        "yAxis" : {
+            "title" : {
+                "text" : "yTitle",
+                "margin" : 20
+            }
+        },
+        "series" : {
+            "name" : "ActMinTotal",
+            "data" : [500,600,550,630,800,920,1100,3000]
+        }
+    }
+}
