@@ -6,8 +6,9 @@
   </head>
   <body>
     <h1>サービスからデータ送信画面</h1>
-    <form action="/charts/create" method=post format=json>
-      <input type=text name=json></input>
+    <form action="charts/create" method="post" enctype="multipart/form-data" >
+      <input type="text" name="json" value="hoge"></input>
+      <input type="file" name="j" ></input>
       <input type=submit value=send></input>
     </form>
   </body>
