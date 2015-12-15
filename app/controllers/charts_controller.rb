@@ -15,9 +15,11 @@ class ChartsController < ApplicationController
     puts session[:json]
     puts "======"
 
-    open(params[:j].tempfile) do |io| #jsonファイルの読み取り
-      @json = JSON.load(io)      
-    end
+    #open(params[:j].tempfile) do |io| #jsonファイルの読み取り
+    #  @json = JSON.load(io)      
+    #end
+
+    @json = session[id: :json]
     
     @json.each do |key,value|
       h = LazyHighCharts::HighChart.new("graph") do |f|
