@@ -12,7 +12,7 @@ class ChartsController < ApplicationController
 
   def create
     puts "======"
-    puts response.headers
+    puts session[:json]
     puts "======"
 
     open(params[:j].tempfile) do |io| #jsonファイルの読み取り
