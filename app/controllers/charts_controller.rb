@@ -11,10 +11,13 @@ class ChartsController < ApplicationController
   end
 
   def create
+    puts "======"
+    puts params
+    puts "======"
     open(params[:j].tempfile) do |io| #jsonファイルの読み取り
       @json = JSON.load(io)      
     end
-
+    
     @json.each do |key,value|
       h = LazyHighCharts::HighChart.new("graph") do |f|
         f.title(:text => value["title"])
