@@ -12,12 +12,12 @@ class ChartsController < ApplicationController
 
   def create
     puts "======"
-    puts session[:json]
+    
     puts "======"
 
-    #open(params[:j].tempfile) do |io| #jsonファイルの読み取り
-    #  @json = JSON.load(io)      
-    #end
+    open(params[:j].tempfile) do |io| #jsonファイルの読み取り
+      @json = JSON.load(io)      
+    end
 
     @json = session[id: :json]
     
