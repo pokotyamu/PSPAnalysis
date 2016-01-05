@@ -11,8 +11,8 @@ class ChartsController < ApplicationController
   end
 
   def create
-    puts params[:json]
-    open(params[:json].tempfile) do |io| #jsonファイルの読み取り
+    puts session[:json]
+    open(session[:json].tempfile) do |io| #jsonファイルの読み取り
       @json = JSON.load(io)      
     end
 
