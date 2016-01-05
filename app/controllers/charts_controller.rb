@@ -11,12 +11,12 @@ class ChartsController < ApplicationController
   end
 
   def create
-    puts session[:json]
-    open(session[:json].tempfile) do |io| #jsonファイルの読み取り
+    puts cookies[:json]
+    open(cookies[:json].tempfile) do |io| #jsonファイルの読み取り
       @json = JSON.load(io)      
     end
 
-    @json = session[id: :json]
+    @json = cookies[:json]
     
     @json.each do |key,value|
       h = LazyHighCharts::HighChart.new("graph") do |f|
