@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   end
 
   get 'charts/show'
-  match 'charts/create/:json' => 'charts#create', :via => :post
+  post 'charts/create'
+  #  match 'charts/create/:json' => 'charts#create', :via => :post
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
