@@ -2,7 +2,7 @@
 require 'json'
 
 class ChartsController < ApplicationController
-  protect_from_forgery except: :charts_action
+  protect_from_forgery :except => [:create] #:charts_action
   @@charts = []
   
   def show
@@ -11,10 +11,7 @@ class ChartsController < ApplicationController
   end
 
   def create
-    puts "======"
-    
-    puts "======"
-
+    puts params[:j]
     open(params[:j].tempfile) do |io| #jsonファイルの読み取り
       @json = JSON.load(io)      
     end
