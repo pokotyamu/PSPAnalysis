@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+require 'open-uri'
 require 'json'
 
 class ChartsController < ApplicationController
@@ -11,14 +12,11 @@ class ChartsController < ApplicationController
   end
 
   def create
-    puts params[:json]
-=begin
-    open(cookies[:json].tempfile) do |io| #jsonファイルの読み取り
-      @json = JSON.load(io)      
-    end
-=end
-    @json = JSON.parse("#{params[:json]}")
-    
+    response = open('psp-analysis-java.herokuapp.com/test/')
+    #    @json = JSON.parse("#{params[:json]}")
+    data = response.read
+    puts data
+    @json = JSON.parse(data)
     @json.each do |key,value|
       h = LazyHighCharts::HighChart.new("graph") do |f|
         f.title(:text => value["title"])
