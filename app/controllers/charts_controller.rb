@@ -12,11 +12,12 @@ class ChartsController < ApplicationController
   end
 
   def create
-    response = open('https://psp-analysis-java.herokuapp.com/json')
+    response = open('https://java-psp-analysis.herokuapp.com/test/hoge')
     #    @json = JSON.parse("#{params[:json]}")
     data = response.read
     puts data
     @json = JSON.parse(data)
+    
     @json.each do |key,value|
       h = LazyHighCharts::HighChart.new("graph") do |f|
         f.title(:text => value["title"])
