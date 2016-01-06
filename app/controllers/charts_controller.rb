@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
+require 'open-uri'
 require 'json'
 
 class ChartsController < ApplicationController
-  protect_from_forgery except: :charts_action
+  protect_from_forgery :except => [:create] #:charts_action
   @@charts = []
   
   def show
@@ -11,10 +12,12 @@ class ChartsController < ApplicationController
   end
 
   def create
-    open(params[:j].tempfile) do |io| #jsonファイルの読み取り
-      @json = JSON.load(io)      
-    end
-
+    response = open('https://java-psp-analysis.herokuapp.com/test/hoge')
+    #    @json = JSON.parse("#{params[:json]}")
+    data = response.read
+    puts data
+    @json = JSON.parse(data)
+    
     @json.each do |key,value|
       h = LazyHighCharts::HighChart.new("graph") do |f|
         f.title(:text => value["title"])
