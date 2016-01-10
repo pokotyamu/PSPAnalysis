@@ -12,7 +12,7 @@ class ChartsController < ApplicationController
   end
 
   def create
-    response = open('https://java-psp-analysis.herokuapp.com/test/hoge')
+    response = open('https://java-psp-analysis.herokuapp.com/result')
     #    @json = JSON.parse("#{params[:json]}")
     data = response.read
     puts data

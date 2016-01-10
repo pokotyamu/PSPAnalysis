@@ -6,7 +6,7 @@
 		<td><%= link_to 'Destory', mdb_destroy_path(f) %></td>
 		<td><%#= link_to 'Analyze', "https://psp-analysis-java.herokuapp.com/test/aa/sample/hoge/hoge" %></td>
 		<td>
-			<%= link_to "Analyze","https://psp-analysis-java.herokuapp.com/test/hoge",:method => :post %>
+			<%= link_to "Analyze","https://java-psp-analysis.herokuapp.com/mdb/#{f.id}",:method => :post %>
 		</td>		
 		<td><%#= link_to 'Analyze', mdb_analyze_path(f,format: :json) %></td>
 	</tr>
