@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 module IdentifyGraph
   def create_graph(f, value)
     f.title(:text => value["title"])
@@ -11,10 +12,11 @@ module IdentifyGraph
       f.plotOptions(:column => { :dataLabels => {:enabled => true}})
     when "pie" then
       pie_graph(f,value)
+    when "scatter" then
+      scatter_graph(f,value)
     else
-       puts "hoge"
+      puts "どれにもあてはまってないよーーーー"
     end
-    
     return f
   end
 
@@ -44,5 +46,19 @@ module IdentifyGraph
             :format => '<b>{point.name}</b>: {point.percentage:.1f} % ( {point.y} )'
           }})
     end
+  end
+
+  def scatter_graph(f,value)
+    f.yAxis({title: {text: value["yAxis"]["title"], margin: 20}})
+
+    value["yAxis"]["series"].each do |s|
+      data = []
+      s["data"].each do |d|
+        data << d
+      end
+      f.series(:name => s["name"], :data => data)
+    end
+
+
   end
 end
