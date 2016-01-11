@@ -5,8 +5,10 @@ module IdentifyGraph
     case value["type"]
     when "line" then
       line_graph(f,value)
+      f.plotOptions(:line => { :dataLabels => {:enabled => true}})
     when "column" then
       column_graph(f,value)
+      f.plotOptions(:column => { :dataLabels => {:enabled => true}})
     when "pie" then
       pie_graph(f,value)
     else
@@ -36,6 +38,11 @@ module IdentifyGraph
         data << [d["name"],d["y"].pop]
       end
       f.series(:name => s["name"],:data => data)
+      f.plotOptions(:pie => {:allowPointSelect => true, :cursor => 'pointer',
+          :dataLabels => {
+            :enabled => true,
+            :format => '<b>{point.name}</b>: {point.percentage:.1f} % ( {point.y} )'
+          }})
     end
   end
 end
